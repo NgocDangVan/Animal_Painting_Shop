@@ -2,9 +2,13 @@
 
   <h2>Bộ sưu tập mới nhất</h2>
 
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Tìm kiếm">
+  </mat-form-field>
+
   <div fxLayout="row wrap" fxLayoutGap="50">
-    <div *ngFor="let product of products">
-      <mat-card class="product-card">
+    <div *ngFor="let product of filteredProducts">
+      <mat-card class="product-card" (click)="addToCart(product)">
         <img mat-card-image src="assets/images/{{product.image_url}}">
         <mat-card-content>
           <mat-card-title>{{product.name}}</mat-card-title>
